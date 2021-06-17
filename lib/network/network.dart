@@ -9,11 +9,12 @@ class WitManager {
 
   void fetchLink() async {
     final response = await http.get(
-        Uri.parse('https://api.wit.ai/message?v=20210507&q=$utterance'),
+        Uri.parse('https://api.wit.ai/message?q=$utterance'),
         headers: {'Authorization': 'Bearer $headers'});
 
     if (response.statusCode == 200) {
-      print(json.decode(response.body));
+      var witResponse = json.decode(response.body);
+      print(witResponse);
     } else {
       print('Error');
     }
