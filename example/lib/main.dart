@@ -15,14 +15,16 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final searchController = TextEditingController();
   dynamic response;
+  var textValue = 'null';
 
   void getValues() async {
     final wit = WitManager(
         utterance: searchController.text,
         headers: "TXGBHYKKFQ7BU3BMKM7IAVYO5IGGN5DE");
     response = await wit.fetchLink();
-    print(response);
-    print(searchController.text);
+    setState(() {
+      textValue = response.toString();
+    });
   }
 
   @override
@@ -45,12 +47,18 @@ class _MyAppState extends State<MyApp> {
                       controller: searchController,
                     )),
                     TextButton(
-                        onPressed: () => getValues(), child: Icon(Icons.search))
+                        onPressed: () {
+                          getValues();
+                        },
+                        child: Icon(Icons.search))
                   ],
                 ),
               ),
             ),
-            Text(response.toString())
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(textValue),
+            )
           ],
         ),
       ),
