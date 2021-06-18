@@ -7,14 +7,14 @@ class WitManager {
   final String utterance;
   final String headers;
 
-  void fetchLink() async {
+  Future fetchLink() async {
     final response = await http.get(
         Uri.parse('https://api.wit.ai/message?q=$utterance'),
         headers: {'Authorization': 'Bearer $headers'});
 
     if (response.statusCode == 200) {
-      var witResponse = json.decode(response.body);
-      print(witResponse);
+      String witResponse = response.body;
+      return jsonDecode(witResponse);
     } else {
       print('Error');
     }
