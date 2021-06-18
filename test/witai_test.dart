@@ -1,12 +1,14 @@
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:witai/witai.dart';
+import 'package:flutter_witai/flutter_witai.dart';
 
 void main() {
-  test('adds one to input values', () {
-    final calculator = Calculator();
-    expect(calculator.addOne(2), 3);
-    expect(calculator.addOne(-7), -6);
-    expect(calculator.addOne(0), 1);
+  final witest = WitManager(
+      utterance: "test", headers: "TXGBHYKKFQ7BU3BMKM7IAVYO5IGGN5DE");
+
+  test('checks correct response from the server', () async {
+    dynamic data = await witest.fetchLink();
+    final utteranceResponse = data['text'];
+
+    expect(utteranceResponse, witest.utterance);
   });
 }
