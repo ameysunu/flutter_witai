@@ -1,5 +1,7 @@
 # Flutter wit.ai Package
 
+[![Codemagic build status](https://api.codemagic.io/apps/60cd6d74ab51634d70139dae/60cd6d74ab51634d70139dad/status_badge.svg)](https://codemagic.io/apps/60cd6d74ab51634d70139dae/60cd6d74ab51634d70139dad/latest_build)
+
 wit.ai is a natural language interface for statements into structured data. This package helps get a structured data from wit.ai console as per the trained utterance for Flutter. You can read a lot more about wit.ai and its documentation [here](https://wit.ai).
 
 Feel free to hit me up with PR for any issues and further improvements for this package.
@@ -33,3 +35,7 @@ To get parameters like `entities` and `traits`, simply tap into the retrieved AP
 dynamic response = await wit.fetchLink();
 print(response['entities]);
 ```
+
+## Screenshots
+
+[!wit.ai](https://i.imgur.com/JaEqFjx.png)
