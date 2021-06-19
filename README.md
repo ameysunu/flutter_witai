@@ -38,4 +38,4 @@ print(response['entities]);
 
 ## Screenshots
 
-[!wit.ai](https://i.imgur.com/JaEqFjx.png)
+![wit.ai](https://i.imgur.com/JaEqFjx.png)
