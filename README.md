@@ -38,4 +38,4 @@ print(response['entities]);
 
 ## Screenshots
 
-![wit.ai](https://i.imgur.com/JaEqFjx.png)
+<img src= "https://i.imgur.com/JaEqFjx.png" width="414" height="896" > 
