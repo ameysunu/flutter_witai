@@ -15,16 +15,25 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final searchController = TextEditingController();
   dynamic response;
+  dynamic languageResponse;
   var textValue = 'null';
+  var language = 'No Language Detected';
+  var confidence = '';
 
   void getValues() async {
     final wit = WitManager(
         utterance: searchController.text,
-        headers:
-            "TXGBHYKKFQ7BU3BMKM7IAVYO5IGGN5DE"); //Replace with SERVER ACCESS TOKEN
+        headers: "XXXXXXXXXXX"); //Replace with SERVER ACCESS TOKEN
+    final withandler =
+        WitHandler(utterance: searchController.text, headers: "XXXXXXXXXXXX");
     response = await wit.fetchLink();
+    languageResponse = await withandler.getLang();
     setState(() {
       textValue = response.toString();
+      language =
+          "Language: ${languageResponse['detected_locales'][0]['locale'].toString()}";
+      confidence =
+          "Confidence: ${languageResponse['detected_locales'][0]['confidence'].toString()}";
     });
   }
 
@@ -37,6 +46,7 @@ class _MyAppState extends State<MyApp> {
           title: Text('wit.ai Demo'),
         ),
         body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.all(10.0),
@@ -59,6 +69,14 @@ class _MyAppState extends State<MyApp> {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Text(textValue),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(language),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(confidence),
             )
           ],
         ),
