@@ -15,12 +15,15 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final searchController = TextEditingController();
   dynamic response;
+  dynamic newResponse;
   var textValue = 'null';
+  var httpHandlers = 'null';
 
   void getValues() async {
     final wit = WitManager(
         utterance: searchController.text,
-        headers: "XXXXXXXXXXXXXXXXXX"); //Replace with SERVER ACCESS TOKEN
+        params: 'message',
+        headers: "XXXXXXXXXXX"); //Replace with SERVER ACCESS TOKEN
     response = await wit.fetchLink();
     setState(() {
       textValue = response.toString();
@@ -36,6 +39,7 @@ class _MyAppState extends State<MyApp> {
           title: Text('wit.ai Demo'),
         ),
         body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.all(10.0),
@@ -58,7 +62,7 @@ class _MyAppState extends State<MyApp> {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Text(textValue),
-            )
+            ),
           ],
         ),
       ),
