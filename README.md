@@ -43,6 +43,8 @@ print(response);
 * **entities** : Returns the list of all entities.
 * **traits** : Returns the list of all traits.
 
+You can read more about HTTP API on wit.ai's Documentation site [here](https://wit.ai/docs/http/20200513/).
+
 ## Screenshots
 
 <img src= "https://i.imgur.com/JaEqFjx.png" width="414" height="896" > 
