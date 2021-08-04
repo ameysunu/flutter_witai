@@ -22,9 +22,8 @@ class _MyAppState extends State<MyApp> {
   void getValues() async {
     final wit = WitManager(
         utterance: searchController.text,
-        params: 'language',
-        headers:
-            "TXGBHYKKFQ7BU3BMKM7IAVYO5IGGN5DE"); //Replace with SERVER ACCESS TOKEN
+        params: 'message',
+        headers: "XXXXXXXXXXX"); //Replace with SERVER ACCESS TOKEN
     response = await wit.fetchLink();
     setState(() {
       textValue = response.toString();
