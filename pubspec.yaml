@@ -1,6 +1,6 @@
 name: flutter_witai
 description: Integrating wit.ai with Flutter for structured response based on your query.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/ameysunu/flutter_witai
 
 environment:
